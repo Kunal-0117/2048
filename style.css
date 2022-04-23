@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: arial;
+}
+
+:root {
+  --size: 7;
+  --box-radius: 1vmin;
+  --bg-color: #202020;
+  --box-bg-color: #606060;
+  --cell-bg-color: #404040;
+  --box-side: 90vmin;
+  --box-gap: calc(var(--box-side)/(var(--size)*16));
+  --cell-side: calc((var(--box-side) - (var(--size) + 1) * var(--box-gap)) / var(--size));
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+#game-board {
+  display: flex;
+  flex-wrap: wrap;
+  height: var(--box-side);
+  width: var(--box-side);
+  background-color: var(--box-bg-color);
+  border-radius: var(--box-radius);
+  padding: var(--box-gap);
+  gap: var(--box-gap);
+  position: relative;
+}
+
+.cell {
+  width: var(--cell-side);
+  height: var(--cell-side);
+  background-color: var(--cell-bg-color);
+  border-radius: var(--box-radius);
+}
+
+.tile {
+  position: absolute;
+  left: calc(var(--box-gap) + var(--x) * (var(--box-gap) + var(--cell-side)));
+  top: calc(var(--box-gap) + var(--y) * (var(--box-gap) + var(--cell-side)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cell-side);
+  height: var(--cell-side);
+  font-size: calc(var(--cell-side) / 3);
+  font-weight: bolder;
+  border-radius: var(--box-radius);
+  /* background-color: hsl(42, 96%, var(--background-lightness)); */
+  background-color: hsl(204, 70%, var(--background-lightness));
+  color: hsl(200, 25%, var(--text-lightness));
+  transition: 150ms ease-in-out;
+  animation: show 200ms ease-in-out;
+}
+
+.hide {
+  animation: show 200ms ease-in-out reverse forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
