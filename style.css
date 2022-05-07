@@ -16,13 +16,19 @@
   --cell-side: calc((var(--box-side) - (var(--size) + 1) * var(--box-gap)) / var(--size));
 }
 
+html,
+body {
+  overscroll-behavior-y: none;
+  position: relative;
+  overflow: hidden;
+}
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   background-color: var(--bg-color);
-  overflow-y: hidden;
 }
 
 #game-board {
