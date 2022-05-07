@@ -62,8 +62,8 @@ body {
   font-size: calc(var(--cell-side) / 3);
   font-weight: bolder;
   border-radius: var(--box-radius);
-  background-color: hsl(42, 96%, var(--background-lightness));
-/*   background-color: hsl(204, 70%, var(--background-lightness)); */
+/*   background-color: hsl(42, 96%, var(--background-lightness)); */
+  background-color: hsl(204, 70%, var(--background-lightness));
   color: hsl(200, 25%, var(--text-lightness));
   transition: 150ms ease-in-out;
   animation: show 200ms ease-in-out;
